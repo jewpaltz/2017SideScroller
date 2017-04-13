@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class FlyingBooster : MonoBehaviour {
-
+    /// <summary>
+    /// Allows player to fly for set number of seconds
+    /// </summary>
     float timeStarted = 0;
     Player player;
 
