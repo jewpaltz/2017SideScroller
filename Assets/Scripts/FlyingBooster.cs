@@ -18,6 +18,8 @@ public class FlyingBooster : MonoBehaviour {
             gameObject.GetComponent<SpriteRenderer>().enabled = false;
 
             timeStarted = Time.time;
+
+			player.Powerup ();
         }
     }
 

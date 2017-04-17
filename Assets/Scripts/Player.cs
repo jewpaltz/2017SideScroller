@@ -16,6 +16,7 @@ public class Player : MonoBehaviour {
     
     private Animator anim;
     private bool air;
+	private SpriteRenderer sr;
 
     // Use this for initialization
     void Start () {
@@ -25,6 +26,7 @@ public class Player : MonoBehaviour {
         
         anim = GetComponent<Animator>();
         air = true;
+		sr = GetComponent<SpriteRenderer> ();
 	}
 	
 	// Update is called once per frame
@@ -39,6 +41,11 @@ public class Player : MonoBehaviour {
         	anim.SetBool("running", true);
         else
         	anim.SetBool("running", false);
+
+		if (v.x > 0)
+			sr.flipX = false;
+		else if (v.x < 0)
+			sr.flipX = true;
 
         if (Input.GetButtonDown("Jump") && (v.y == 0 || canFly) ) {
             v.y = jumpSpeed;
@@ -66,6 +73,10 @@ public class Player : MonoBehaviour {
         transform.position = startingPosition;
         Debug.Log("You're Out");
     }
+
+	public void Powerup(){
+		anim.SetTrigger ("powered");
+	}
 
 	void OnCollisionEnter2D(Collision2D col){
 		air = false;
