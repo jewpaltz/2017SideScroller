@@ -36,26 +36,28 @@ public class Player : MonoBehaviour {
         float x = Input.GetAxisRaw("Horizontal");
         Vector2 v = rigidbody.velocity;
         v.x = x * speed;
-        
-        if(v.x != 0)
-        	anim.SetBool("running", true);
-        else
-        	anim.SetBool("running", false);
 
-		if (v.x > 0)
-			sr.flipX = false;
-		else if (v.x < 0)
-			sr.flipX = true;
+        if (v.x != 0) {
+            anim.SetBool("running", true);
+        } else {
+            anim.SetBool("running", false);
+        }
+
+        if (v.x > 0) {
+            sr.flipX = false;
+        } else if (v.x < 0) {
+            sr.flipX = true;
+        }
 
         if (Input.GetButtonDown("Jump") && (v.y == 0 || canFly) ) {
             v.y = jumpSpeed;
         }
-        
-        if(air)
-        	anim.SetBool("inAir", true);
-        else
-        	anim.SetBool("inAir", false);
-        	
+
+        if (v.y != 0) {
+            anim.SetBool("inAir", true);
+        } else {
+            anim.SetBool("inAir", false);
+        }
 
         rigidbody.velocity = v;
 
