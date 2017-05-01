@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bomb : Throwable {
+public class StunGrenade3 : Throwable
+{
 
     public float blastRadius = 5;
-    
+
     void OnCollisionEnter2D(Collision2D coll)
     {
         var player = coll.gameObject.GetComponent<Player>();
