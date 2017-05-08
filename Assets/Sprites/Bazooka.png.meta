@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 00d25b1b78ad32d4790102c13455f93b
-timeCreated: 1494196985
+timeCreated: 1494251369
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -88,26 +88,26 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Bazooka_1
+      name: Bazooka_0
       rect:
         serializedVersion: 2
-        x: 126
-        y: 95
-        width: 342
-        height: 99
+        x: 114
+        y: 94
+        width: 354
+        height: 91
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Bazooka_0
+      name: Bazooka_1
       rect:
         serializedVersion: 2
-        x: 1
-        y: 138
-        width: 125
-        height: 35
+        x: 0
+        y: 140
+        width: 113
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

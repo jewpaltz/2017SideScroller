@@ -10,7 +10,6 @@ public class Player : MonoBehaviour {
     public float deadZone = -3;
     public bool canFly = false;
 
-    private int iCurrentWeapon = 0;
     private Weapon currentWeapon;
     private List<Weapon> weapons = new List<Weapon>();
 
@@ -70,6 +69,11 @@ public class Player : MonoBehaviour {
             currentWeapon.Attack();
         }
 
+        if (Input.GetButtonDown("Fire2")) {
+            int i = (weapons.IndexOf(currentWeapon) + 1) % weapons.Count;
+            SetCurrentWeapon(weapons[i]);
+        }
+
         // Check for out
         if (transform.position.y < deadZone) {
             Debug.Log("Current Position " + transform.position.y + " is lower than " + deadZone);
@@ -89,12 +93,30 @@ public class Player : MonoBehaviour {
 		anim.SetTrigger ("powered");
 	}
 
+    public void AddWeapon(Weapon w)
+    {
+        weapons.Add(w);
+        SetCurrentWeapon(w);
+    }
+
+    public void SetCurrentWeapon(Weapon w)
+    {
+        if(currentWeapon != null) {
+            currentWeapon.gameObject.SetActive(false);
+        }
+
+        currentWeapon = w;
+
+        if (currentWeapon != null) {
+            currentWeapon.gameObject.SetActive(true);
+        }
+    }
+
     void OnCollisionEnter2D(Collision2D coll){
 		air = false;
         var weapon = coll.gameObject.GetComponent<Weapon>();
         if (weapon != null ) {
             weapon.GetPickedUp(this);
-            currentWeapon = weapon;
         }
     }
 
